@@ -80,8 +80,8 @@ build() {
     status "Install meteor dependencies 2"
     meteor npm install --save angular angular-meteor angular-meteor-auth
     meteor npm install --save bunyan bunyan-loggly consul lodash yamljs pkgcloud
-    status "Installing npm dependencies"
-    npm install 2>&1 | indent
+    meteor npm install --save angular-material angular-ui-router angular-animate
+    meteor npm install --save fibers async newrelic
     
     pwd
     ls -la
