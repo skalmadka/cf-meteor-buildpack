@@ -59,6 +59,7 @@ install_meteor() {
     $METEOR_INSTALL_SCRIPT > install-meteor-verbose.sh
   chmod +x install-meteor-verbose.sh
 
+  cat install-meteor-verbose.sh
   status "Execute ./install-meteor-verbose.sh"
   ./install-meteor-verbose.sh
   status "Done"
@@ -67,6 +68,7 @@ install_meteor() {
   PATH=$HOME/.meteor:$PATH
   
   pwd
+  ls -la
   
   status "Install meteor dependencies"
   meteor npm install --save angular angular-meteor angular-meteor-auth
@@ -78,6 +80,7 @@ build() {
   (
     cd $BUILD_DIR
     pwd
+    ls -la
     
     status "Install meteor dependencies 2"
     meteor npm install --save angular angular-meteor angular-meteor-auth
