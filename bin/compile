@@ -61,6 +61,9 @@ install_meteor() {
 
   status "Execute ./install-meteor-verbose.sh"
   ./install-meteor-verbose.sh
+  status "install meteor dependencies"
+  meteor npm install --save angular angular-meteor angular-meteor-auth
+  meteor npm install --save bunyan bunyan-loggly consul lodash yamljs pkgcloud
   status "Done"
 
   status "Updating PATH with Meteor"
