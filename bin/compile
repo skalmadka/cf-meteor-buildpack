@@ -66,6 +66,8 @@ install_meteor() {
   status "Updating PATH with Meteor"
   PATH=$HOME/.meteor:$PATH
   
+  pwd
+  
   status "Install meteor dependencies"
   meteor npm install --save angular angular-meteor angular-meteor-auth
   meteor npm install --save bunyan bunyan-loggly consul lodash yamljs pkgcloud
@@ -75,9 +77,16 @@ install_meteor() {
 build() {
   (
     cd $BUILD_DIR
+    pwd
+    
+    status "Install meteor dependencies 2"
+    meteor npm install --save angular angular-meteor angular-meteor-auth
+    meteor npm install --save bunyan bunyan-loggly consul lodash yamljs pkgcloud
+
     status "Building meteor bundle"
     meteor build --directory deploy --server http://localhost:3000
     cd deploy/bundle/programs/server
+    ls -la
     status "Installing npm dependencies"
     npm install 2>&1 | indent
     mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
