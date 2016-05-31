@@ -24,7 +24,7 @@ extract_root_url() {
 }
 
 extract_mongo_url
-extract_root_url
+#extract_root_url
 
 cat <<-YAML
 ---
