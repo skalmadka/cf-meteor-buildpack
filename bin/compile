@@ -83,22 +83,21 @@ build() {
     #meteor npm install --save angular-material angular-ui-router angular-animate
     #meteor npm install --save fibers async newrelic
     meteor npm install #--save react react-dom react-tap-event-plugin material-ui
-    status "Dependencies for Meteor, React, and Angular have been installed."
-    pwd
-    ls -la
+    status "Dependencies for the app have been installed"
     status "Listing installed modules"
     ls -la node_modules/
     meteor build --directory deploy --server http://localhost:3000 --server-only
     pwd
     ls -la
-    ls -lR deploy
-    cd deploy/bundle/programs/server
+    status "Meteor built app:"
+    ls -la deploy/ | head -n 100
+    #cd deploy/bundle/programs/server
     #pwd
     #ls -la
     #status "Installing npm dependencies"
     #npm install 2>&1 | indent
-    pwd
-    ls -la
+    #pwd
+    #ls -la
     mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
   )
 }
