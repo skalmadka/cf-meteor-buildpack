@@ -92,7 +92,7 @@ build() {
     status "Meteor built app:"
     ls -lR deploy/ | head -n 100
     cd deploy/bundle/programs/server
-    npm install
+    npm install 2>&1 | indent
     #cd deploy/bundle/programs/server
     #pwd
     #ls -la
