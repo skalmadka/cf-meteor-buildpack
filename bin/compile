@@ -90,7 +90,9 @@ build() {
     pwd
     ls -la
     status "Meteor built app:"
-    ls -la deploy/ | head -n 100
+    ls -lR deploy/ | head -n 100
+    cd deploy/bundle/programs/server
+    npm install
     #cd deploy/bundle/programs/server
     #pwd
     #ls -la
