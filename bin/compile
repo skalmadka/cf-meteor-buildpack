@@ -82,13 +82,22 @@ build() {
     status "Listing installed modules"
     ls -la node_modules/
     meteor build --directory deploy --server http://localhost:3000 --server-only
-    pwd
-    ls -la
-    status "Meteor built app:"
-    ls -lR deploy/ | head -n 100
-    cd deploy/bundle/programs/server
-    npm install 2>&1 | indent
-    mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
+    if [ -d  "deploy/bundle/programs/server" ]; then
+      pwd
+      ls -la
+      status "Meteor built app:"
+      ls -lR deploy/ | head -n 100
+      cd deploy/bundle/programs/server
+      npm install 2>&1 | indent
+      mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
+    else
+      status "A problem occurred during staging. The meteor app could not be built."
+      status "Please increase the available file descriptors in your manifest.yml:"
+      status "applications:"
+      status " - name: {name}"
+      status " file_descriptors: 99999"
+      exit 1
+    fi
   )
 }
 
