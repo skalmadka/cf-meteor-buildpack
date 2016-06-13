@@ -77,12 +77,7 @@ build() {
     pwd
     ls -la
 
-    status "Install meteor dependencies from app"
-    #meteor npm install --save angular angular-meteor angular-meteor-auth
-    #meteor npm install --save bunyan bunyan-loggly consul lodash yamljs pkgcloud
-    #meteor npm install --save angular-material angular-ui-router angular-animate
-    #meteor npm install --save fibers async newrelic
-    meteor npm install #--save react react-dom react-tap-event-plugin material-ui
+    status "Install meteor dependencies from app.."
     status "Dependencies for the app have been installed"
     status "Listing installed modules"
     ls -la node_modules/
@@ -93,13 +88,6 @@ build() {
     ls -lR deploy/ | head -n 100
     cd deploy/bundle/programs/server
     npm install 2>&1 | indent
-    #cd deploy/bundle/programs/server
-    #pwd
-    #ls -la
-    #status "Installing npm dependencies"
-    #npm install 2>&1 | indent
-    #pwd
-    #ls -la
     mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
   )
 }
