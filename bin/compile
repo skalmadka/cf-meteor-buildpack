@@ -78,7 +78,7 @@ build() {
     ls -la
 
     status "Install meteor dependencies from app.."
-    meteor npm install
+    meteor npm install --production
     status "Dependencies for the app have been installed"
     status "Listing installed modules"
     ls -la node_modules/
