@@ -38,7 +38,9 @@ install_node() {
   mv $BUILD_DIR/node-v$node_version-linux-x64 $BUILD_DIR/.vendor/node
   chmod +x $BUILD_DIR/.vendor/node/bin/*
   PATH=$BUILD_DIR/.vendor/node/bin:$PATH
-  echo "PATH: $PATH"
+  echo "***PATH: $PATH"
+  ls -lR $BUILD_DIR/.vendor/node/bin
+  node --version
 }
 
 install_meteor() {
