@@ -83,6 +83,7 @@ build() {
     status "Free disk space BEFORE meteor npm instal"
     df -h
     status "Install meteor dependencies from app.."
+    node --version
     meteor npm install
     status "Dependencies for the app have been installed"
     status "Free disk space AFTER meteor npm instal"
@@ -114,6 +115,7 @@ build() {
 
 install_node
 install_meteor
+install_node
 build
 
 status "Checking for post_compile script"
