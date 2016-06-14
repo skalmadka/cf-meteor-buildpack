@@ -18,6 +18,7 @@ status() {
 }
 
 node_version=$(curl --silent --get https://semver.io/node/resolve/0.12.x)
+echo "node_version: $node_version"
 
 install_node() {
   if [ -f "$BUILD_DIR/.vendor/node/bin/node" ] ; then
