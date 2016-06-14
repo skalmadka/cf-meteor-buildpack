@@ -76,10 +76,13 @@ build() {
     cd $BUILD_DIR
     pwd
     ls -la
-
+    status "Free disk space BEFORE meteor npm instal"
+    df -h
     status "Install meteor dependencies from app.."
-    meteor npm install --production
+    meteor npm install
     status "Dependencies for the app have been installed"
+    status "Free disk space AFTER meteor npm instal"
+    df -h
     status "Listing installed modules"
     ls -la node_modules/
     meteor build --directory deploy --server http://localhost:3000 --server-only
